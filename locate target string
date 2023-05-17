@@ -13,7 +13,7 @@ public class Solution {
         System.out.println(index);
     }
 }
-#approach 2:
+//
 import java.io.*;
 import java.util.*;
 
