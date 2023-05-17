@@ -93,3 +93,41 @@ public class Solution {
         
     }
 }
+Is it a Pangram String?
+Sample Input 0
+
+the quick brown fox jumps over the lazy dog
+Sample Output 0
+
+YES
+Explanation 0
+
+The sentence "the quick brown fox jumps over the lazy dog" contains all the letters of the English alhpabets. Hence, it is a Pangram!
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+         Scanner sc=new Scanner(System.in);
+        String str=sc.nextLine();
+        int[] freq=new int[26];
+         str=str.toLowerCase();
+        for(int i=0;i<str.length();i++){
+            char ch=str.charAt(i);
+            if(ch>=97 &&ch<=122){
+                int ind=ch-97;
+                freq[ind]++;
+            }
+        }
+        for(int i=0;i<26;i++){
+            if(freq[i]==0){
+                System.out.print("NO");
+            return;
+            }
+        }
+        System.out.print("YES");
+    }
+}
