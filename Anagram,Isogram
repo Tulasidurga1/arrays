@@ -1,0 +1,95 @@
+HW_Check Anagram
+Take two Strings as input and check whether they are anagram or not. Print True if they are anagram else print False.
+
+Anagram: An anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+Eg: "peek" and "keep" are anagrams.
+
+Note: All characters will be in lowercase.
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+          Scanner sc=new Scanner(System.in);
+          String str1=sc.nextLine();
+           int[] freq1=new int[26];
+            str1 = str1.toLowerCase();
+        
+        for(int i=0;i<str1.length();i++){
+            char ch=str1.charAt(i);
+            if(ch>=97 &&ch<=122){
+                int ind=ch-97;
+                freq1[ind]++;
+            }
+        }
+           String str2=sc.nextLine();
+             int[] freq2=new int[26];
+               str2=str2.toLowerCase();
+        for(int i=0;i<str2.length();i++){
+            char ch=str2.charAt(i);
+            if(ch>=97 &&ch<=122){
+                int ind=ch-97;
+                freq2[ind]++;
+             
+            }
+        }
+        for(int i=0;i<26;i++){
+        if(freq1[i]!=freq2[i]){
+            System.out.print("False");
+            return;
+        }
+        }
+        System.out.print("True");
+    }
+}
+HW_Isogramic String
+Sample Input 0
+
+geekster
+Sample Output 0
+
+Not an Isogram
+Explanation 0
+
+In the string "geekster", the letter "e" occurs 3 times. Hence, it violates the condition of being an isogram.
+
+Sample Input 1
+
+machine
+Sample Output 1
+
+Isogram
+Explanation 1
+
+In the string "machine", all the characters occur only once in the string.
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+         Scanner sc=new Scanner(System.in);
+        String str=sc.nextLine();
+        int[] freq=new int[26];
+         str=str.toLowerCase();
+        for(int i=0;i<str.length();i++){
+            char ch=str.charAt(i);
+            if(ch>=97 &&ch<=122){
+                int ind=ch-97;
+                freq[ind]++;
+            }
+        }
+        for(int i=0;i<26;i++){
+            if(freq[i]>1){
+                System.out.print("Not an Isogram");
+            return;
+            }
+        }
+        System.out.print("Isogram");
+        
+    }
+}
