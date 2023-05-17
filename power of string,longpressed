@@ -1,0 +1,92 @@
+Power of a String
+Take a String str as input and calculate the Power of the string.
+
+Power of a string is defined as the maximum length of substring that contains only one unique character.
+
+A substring is a continuous sequence of characters within a string.
+
+Note: All characters in the string are in lowercase.
+
+Input Format
+
+A String str
+
+Constraints
+
+1 <= str.length <= 10^4
+Output Format
+
+Print the required Integer Value.
+
+Sample Input 0
+
+abbcccddddeeeeeffgghheecccc
+Sample Output 0
+
+5
+Explanation 0
+
+Here, Power of string is 5 (eeeee), as it is a substring of maximum length having only one unique character.
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner scn = new Scanner(System.in);
+        String str = scn.next();
+        int count=1,max=1;
+        for(int idx=1;idx<str.length();idx++){
+            if(str.charAt(idx)==str.charAt(idx-1))count++;
+            else count=1;
+            if(count>max)max=count;
+        }
+        System.out.print(max);
+    }
+}
+
+Long Pressed Name
+Sample Input 0
+
+alex
+aaleex
+Sample Output 0
+
+true
+Explanation 0
+
+'a' and 'e' in 'alex' were long pressed.
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+         Scanner sc = new Scanner(System.in);
+
+        String str = sc.next();
+        String target = sc.next();
+
+        int i = 0;
+        int j = 0;
+        // int count = 0;
+
+        while(i<str.length() && j<target.length()){
+            if(str.charAt(i)==target.charAt(j)){
+                i++;
+                j++;
+                // count++;
+            }
+            else //skipping the characters
+                j++;
+        }
+
+        if(i==str.length())
+            System.out.print("true");
+        else
+            System.out.print("false");
+}
+}
